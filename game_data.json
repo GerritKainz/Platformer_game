@@ -1,0 +1,62 @@
+{
+ "automatic_resolution": "True",
+ "screen_resolution": [
+  800,
+  600
+ ],
+ "data": {
+  "framerate": 60,
+  "showfps": "False",
+  "jump_key": "w",
+  "left_key": "a",
+  "right_key": "d",
+  "duck_key": "s",
+  "volume_effects": 0,
+  "volume_music": 0,
+  "current_level": 0,
+  "current_player": 0,
+  "coins": 0
+ },
+ "levels_unlocked": [
+  "True",
+  "False",
+  "False",
+  "False",
+  "False",
+  "False",
+  "False",
+  "False"
+ ],
+ "players_unlocked": [
+  "True",
+  "False",
+  "False",
+  "False",
+  "False",
+  "False",
+  "False",
+  "False",
+  "False"
+ ],
+ "level_values": [
+  0,
+  100,
+  150,
+  100,
+  100,
+  100,
+  100,
+  100
+ ],
+ "player_values": [
+  0,
+  50,
+  150,
+  200,
+  500,
+  1000,
+  100,
+  100,
+  100
+ ]
+}

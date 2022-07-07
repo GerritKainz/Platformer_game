@@ -1,0 +1,167 @@
+HOW TO USE THE GAME:
+
+1. PLAY THE GAME:
+1.1 Start the game:
+ -To start the game, simply double click the Platformer3.exe file.
+ -Wait a few seconds for the game to load.
+ -You can quit by pressing the 'Esc' key.
+
+1.2 The Start screen:
+ -When starting the game, you will start on the start screen.
+ -You can see levels and characters you can choose. At the beginning all but the first ones are locked.
+  -Try to select one of the locked levels / characters. You will se that you don't have enough coins yet.
+ -On the topleft of the screen you see that you have 0 coins. To get more coins, you can play levels.
+ -On the topmiddle you can see a text saying "Settings". When you click on it, you get to the settings menu.
+  -For more on the settings menu, have a look at 1.5 The Settings screen.
+ -To quit the game, simply click the button on the topright of the screen or hit the 'Esc' key.
+ -Now let's play and get some coins! Click on the Play arrow on the bottomright of the screen.
+
+1.3 The Level screen:
+ -Now you are in the first level! You can see how many coins you have on the topleft and there's a pause button on the topright.
+ -Let's move! Press the 'd' key to move to the right.
+ -Now we need to jump. Press the 'w' key.
+ -You can move to the left with the 'a' key.
+ -You can also use the 's' key to get to the ground faster when in the air.
+ -Now play around for a bit!
+  (-If you want to change the keys, click on the pause button on the topright and then on 'menu'. Then go to the settings screen.
+  -Have a look at 1.5 The Settings screen to see how to change keys.)
+ -Try to hit one of the orange blocks.
+ -You'll see, that your character died. 
+ -Also, a menu will pop up. 
+  -You can click on 'restart' to restart the level.
+  -You can click on 'menu' to get back to the start screen.
+  -You can click 'quit' to quit the game.
+  -You can also quit the game by pressing the 'Esc' key.
+ -Click 'restart' and try to not hit the orange blocks again :) Instead, try to reach the blue flag on the topright of the level!
+ -When you reach the blue flag, a menu will pop up.
+  -You can click 'next level' to get to the next unlocked level. 
+   (-Right now this will bring you back to the same level since you only have unlocked one level.)
+ -The other buttons do the same as on the menu that pops up when your character dies.
+ -You have now completed the first level! 
+ -Now continue to play and collect coins until you have at least 50.
+ -You can now unlock a second character!
+ -Return to the start screen.
+
+1.4 The Start screen (Part 2): 
+ -Click on the blue character.
+ -Click 'Buy' to buy the new character.
+ -Now you have a second character! You can change between characters by simply clicking on them.
+ -Unlocking levels works in the same way.
+
+1.5 The Settings screen:
+ -To change a key, simply click on the text with the key and then press the key you want to select.
+ -Let's say you want to change the jump key from 'w' to 'up'. Click on 'Jump key: w' and then press the 'up' key.
+ -To change the volume of the sounds and the music, click on the red square of the slider and drag it left / right.
+ -You can toggle the fps on / off by clicking on 'Show FPS'.
+ -Wen you click 'Reset Data' and then 'OK', your game will be reset to how it was at the beginning.
+  -All levels and characters will be locked again and you wil have 0 coins!
+ -To return to the start screen, click the arrow on the topleft of the screen.
+ -You can quit the game by clicking the button on the topright of the screen or pressing the 'Esc' key.
+ -When you quit the game, the settings will be automatically saved and loaded the next time you play!
+
+
+2. MODIFY THE GAME:
+ -You can mod this game!
+ -You can make your own levels, characters and sounds and use them in the game.
+ -You can change how many coins a level / character costs. 
+  -Open the game_data.json file and change the number in "level_values" / "player_values".
+   -For example, if you want to change how many the third level costs, change the third number (150 by default).
+  -Save the file!
+ -I recommend making a backup of the folders in case you want to get the original levels / characters / sounds back.
+ -First, go to the directory of the .exe file of the game.
+
+2.1 Modify Levels:
+ -First, open the folder of the level pictures. Go into the 'pictures' folder and then into the 'levels' folder
+ -You will see three pictures named '0.png', '1.png' and '2.png'.
+ -You can now either edit those pictures or make new ones.
+
+2.1.1 Edit Levels:
+ -Open the picture of the level you want to change in a picture editing software.
+ -Edit the picture.
+  -You can delete or add ground pieces (the colored rectangles).
+  -You can also add for example grass.
+  -You can make the level smaller or bigger, the game will automatically adapt to the size of the level.
+  -You can change the color of the background to any color you like.
+  -If you change the background, you'll need to change the corresponding color in the collision_colors.py file.
+   -Open the file and change e.g. the third rgb color if you are editing the third level (level 2!)
+   -Save the file!
+  -COINS:
+   -You can add or delete coins.
+   -To add a coin at a position, you only need to draw a pixel with a rgb value of 255, 255, 254 (pretty much white).
+   -The program automatically places a coin on all pixels with this rgb value.
+   (-If you don't know what rgb colors are and how to use them in your picture editing software, look it up, it's important for this!)
+   -To delete a coin, change the color of the pixel to a different color (for example the background color).
+   -You can change the 255, 255, 254 color to a color that is close to your background color (so that you don't see pixels on places where your character has collected a coin.
+   -To do that, open the collision_colors.py file and change the coin_color to the new rgb value
+  -COLLISION:
+   -The collision in the game is dependent on the rgb colors of the ground pieces in the levels
+   -If you make a ground piece with a color different from the ones that are already used in the game, you need to add the rgb color to the list of collision colors.
+   -Open the collision_colors.py file and add the rgb value to the collision_colors_ground list.
+   -If you add a piece that should kill the character when hitting it, add the color to the collision_colors_death list.
+   -If you want the flag that finishes the level when hit to be a different color, add / change this color to the collision_colors_finish list.
+   -(Of course this doesn't need to be a flag, only the color is important).
+   -Make sure that your background color is different from any of the colors in any of those lists except for the background_colors list!
+
+2.1.2 Make new Levels:
+ -Making a new level is very similar to changing a level.
+ -Draw the new level.
+ -Make sure to handle the colors correctly (see 2.2.1 Change levels).
+ -Save the new level in the levels folder.
+ -Make sure to name the file properly (I'm sure you can recognise the pattern).
+ -That's it, your new level will appear when you (re)start the game!
+ -You can have a maximum of 8 levels (named 0.png, 1.png, 2.png, ... 7.png)!
+
+2.2 Modify Characters:
+ -Modifying characters is similar to modifying levels.
+ -First, open the folder of the character pictures. Go into the 'pictures' folder and then into the 'players' folder.
+ -You'll find folders named with numbers from 0 to 4.
+
+2.2.1 Edit Characters:
+ -Open one of the folders, you'll find 5 different pictures.
+ -You can edit those pictures with a picture editing software.
+ -When you're done, simply save them (overwrite the old picture).
+ -The background should be white (255, 255, 255), the game will then make them transparent automatically!
+
+2.2.2 Make new Characters:
+ -You can also make new characters!
+ -First, create a new folder in the 'players' folder (I'm sure you can figure out how you should name it!).
+ -'big.png' is the picture that is displayed on the start screen for selecting the characters.
+ -'jump.png' is displayed in the level when the player is jumping or stationary.
+ -'dead.png' is displayed when the character died.
+ -'running1.png' and 'running2.png' are displayed when the character is moving.
+ -The backgrounds should be white (255, 255, 255), this will make the pictures transparent!
+ -Make sure to name the files properly (I'm sure you can recognise the pattern).
+ -You can have a maximum of 9 characters (folders named 0, 1, 2, ... 8)!
+ -That's it, your new character will appear when you (re)start the game!
+
+2.3 Modify Assets:
+ -You can also change the coin picture, the pause button, ...
+ -You can find those pictures in the 'menu' folder , which is in the 'pictures' folder.
+ -The new pictures should be around the same size as the old ones.
+
+2.4 Modify Sounds:
+ -Copy the new sound file you want to have.
+ -Open the 'sounds' folder.
+ -Rightclick on the file you want to change, click 'rename' and copy the name.
+ -Delete the file.
+ -Paste the new file, rightclick it, select rename and paste the name of the old file.
+ -'Music2.mp3' is played on the start and settings screen.
+ -'Music1.mp3' is played in the level.
+ -'smashsound.mp3' is played when the character dies.
+ -'level_complete_sound.mp3' is played when the level is completed.
+ -'ka-ching.mp3' is played when you buy a level or character.
+ -'error.mp3' is played when you want to buy a level or character but you don't have enough coins.
+ -It is important that the files have those exact names (they also need to be.mp3)!
+
+
+3. SCREEN RESOLUTION:
+ -The game should automatically adapt to your screen size.
+ -If the resolution does not work or you want a different one, then you can change it.
+ -Open the game_data.json file.
+ -Set "automatic_resolution" to "False".
+ -Change the values in "screen_resolution" to the width and height you want.
+ -Save the file and (re)start the game.
+
+
+
+Have fun!
